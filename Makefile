@@ -12,3 +12,21 @@ stop:
 
 push:
 	docker push lastnorf/kubia
+
+# Below are the commands that can be executed locally with minikube
+
+run-pod:
+	kubectl run kubia --image=lastnorf/kubia --port=8080
+
+pods:
+	kubectl get pods
+
+service:
+	kubectl expose pod kubia --type=LoadBalancer --name kubia-http
+
+all:
+	kubectl get all
+
+# Get the service address and port and open the browser
+kubia:
+	minikube service kubia-http
